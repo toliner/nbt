@@ -5,9 +5,8 @@ import toliner.nbt.TagType
 /**
  * @param name The tag name.
  */
-sealed class NBTTag<out T>(val tagType: TagType, val name: String = ""): Comparable<NBTTag<*>> {
+sealed class NBTTag<out T>(val tagType: TagType, val name: String = "") : Comparable<NBTTag<*>> {
     abstract fun getValue(): T
-    abstract fun cloneMap(): Map<String, T>
     abstract fun clone(): NBTTag<T>
 
     override fun compareTo(other: NBTTag<*>): Int {
@@ -20,5 +19,16 @@ sealed class NBTTag<out T>(val tagType: TagType, val name: String = ""): Compara
                 name.compareTo(other.name)
             }
         }
+    }
+
+    class End : NBTTag<Any?>(TagType.END) {
+        override fun getValue(): Any? {
+            return null
+        }
+
+        override fun clone(): NBTTag<Any?> {
+            return End()
+        }
+
     }
 }
