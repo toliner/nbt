@@ -2,12 +2,14 @@ package toliner.nbt.tags
 
 import toliner.nbt.TagType
 
+private typealias Integer = kotlin.Int
+
 sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
     abstract val value: T
     abstract val name: String
     abstract fun clone(): NBTTag<T>
 
-    override fun compareTo(other: NBTTag<*>): Int {
+    override fun compareTo(other: NBTTag<*>): Integer {
         return if (this == other) {
             0
         } else {
@@ -39,6 +41,12 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
 
     data class Short(override val name: String, override val value: kotlin.Short) : NBTTag<kotlin.Short>(TagType.SHORT) {
         override fun clone(): NBTTag<kotlin.Short> {
+            return copy()
+        }
+    }
+
+    data class Int(override val name: String, override val value: Integer) : NBTTag<Integer>(TagType.INT) {
+        override fun clone(): NBTTag<Integer> {
             return copy()
         }
     }
