@@ -43,4 +43,14 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
         }
 
     }
+
+    data class Short(override val name: String, val value: kotlin.Short): NBTTag<kotlin.Short>(TagType.SHORT) {
+        override fun getValue(): kotlin.Short {
+            return value
+        }
+
+        override fun clone(): NBTTag<kotlin.Short> {
+            return copy()
+        }
+    }
 }
