@@ -3,9 +3,9 @@ package toliner.nbt.tags
 import toliner.nbt.TagType
 
 sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
-    abstract fun getValue(): T
-    abstract fun clone(): NBTTag<T>
+    abstract val value: T
     abstract val name: String
+    abstract fun clone(): NBTTag<T>
 
     override fun compareTo(other: NBTTag<*>): Int {
         return if (this == other) {
@@ -23,32 +23,21 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
         override val name: String
             get() = ""
 
-        override fun getValue(): Any? {
-            return null
-        }
+        override val value: Any?
+            get() = null
 
         override fun clone(): NBTTag<Any?> {
             return End()
         }
-
     }
 
-      data class Byte(override val name: String, val value: kotlin.Byte): NBTTag<kotlin.Byte>(TagType.BYTE) {
-        override fun getValue(): kotlin.Byte {
-            return value
-        }
-
+    data class Byte(override val name: String, override val value: kotlin.Byte) : NBTTag<kotlin.Byte>(TagType.BYTE) {
         override fun clone(): NBTTag<kotlin.Byte> {
             return copy()
         }
-
     }
 
-    data class Short(override val name: String, val value: kotlin.Short): NBTTag<kotlin.Short>(TagType.SHORT) {
-        override fun getValue(): kotlin.Short {
-            return value
-        }
-
+    data class Short(override val name: String, override val value: kotlin.Short) : NBTTag<kotlin.Short>(TagType.SHORT) {
         override fun clone(): NBTTag<kotlin.Short> {
             return copy()
         }
