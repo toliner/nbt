@@ -50,4 +50,10 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
             return copy()
         }
     }
+
+    data class Long(override val name: String, override val value: kotlin.Long) : NBTTag<kotlin.Long>(TagType.LONG) {
+        override fun clone(): NBTTag<kotlin.Long> {
+            return copy()
+        }
+    }
 }
