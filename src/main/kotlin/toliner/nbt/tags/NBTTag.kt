@@ -56,4 +56,10 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
             return copy()
         }
     }
+
+    data class Float(override val name: String, override val value: kotlin.Float) : NBTTag<kotlin.Float>(TagType.FLOAT) {
+        override fun clone(): NBTTag<kotlin.Float> {
+            return copy()
+        }
+    }
 }
