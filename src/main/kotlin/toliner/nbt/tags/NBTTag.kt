@@ -68,4 +68,13 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
             return copy()
         }
     }
+
+    data class ByteArray(override val name: String, private val list: List<kotlin.Byte>) : NBTTag<kotlin.ByteArray>(TagType.BYTE_ARRAY) {
+        override val value: kotlin.ByteArray
+            get() = list.toByteArray()
+
+        override fun clone(): NBTTag<kotlin.ByteArray> {
+            return copy()
+        }
+    }
 }
