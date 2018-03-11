@@ -62,4 +62,10 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
             return copy()
         }
     }
+
+    data class Double(override val name: String, override val value: kotlin.Double) : NBTTag<kotlin.Double>(TagType.DOUBLE) {
+        override fun clone(): NBTTag<kotlin.Double> {
+            return copy()
+        }
+    }
 }
