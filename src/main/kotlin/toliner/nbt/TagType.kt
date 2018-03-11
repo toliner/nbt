@@ -11,5 +11,6 @@ enum class TagType(val tagClass: KClass<out NBTTag<*>>, val tagName: String, val
     LONG(NBTTag.Long::class, "TAG_Long", 4),
     FLOAT(NBTTag.Float::class, "TAG_Float", 5),
     DOUBLE(NBTTag.Double::class, "TAG_Double", 6),
-    BYTE_ARRAY(NBTTag.ByteArray::class, "TAG_Byte_Array", 7)
+    BYTE_ARRAY(NBTTag.ByteArray::class, "TAG_Byte_Array", 7),
+    STRING(NBTTag.String::class, "TAG_String", 8)
 }
