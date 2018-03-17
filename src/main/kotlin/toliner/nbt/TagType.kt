@@ -15,5 +15,6 @@ enum class TagType(val tagClass: KClass<out NBTTag<*>>, val tagName: String, val
     STRING(NBTTag.String::class, "TAG_String", 8),
     LIST(NBTTag.List::class, "TAG_List", 9),
     COMPOUND(NBTTag.Compound::class, "TAG_Compound", 10),
-    INT_ARRAY(NBTTag.IntArray::class, "TAG_Int_Array", 11)
+    INT_ARRAY(NBTTag.IntArray::class, "TAG_Int_Array", 11),
+    SHORT_ARRAY(NBTTag.ShortArray::class, "TAG_Short_Array", 100)
 }

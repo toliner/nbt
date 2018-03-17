@@ -106,4 +106,13 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
             return copy()
         }
     }
+
+    data class ShortArray(override val name: kotlin.String, private val list: kotlin.collections.List<kotlin.Short>) : NBTTag<kotlin.ShortArray>(TagType.SHORT_ARRAY) {
+        override val value: kotlin.ShortArray
+            get() = list.toShortArray()
+
+        override fun clone(): NBTTag<kotlin.ShortArray> {
+            return copy()
+        }
+    }
 }
