@@ -97,4 +97,13 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
             return copy()
         }
     }
+
+    data class IntArray(override val name: kotlin.String, private val list: kotlin.collections.List<kotlin.Int>) : NBTTag<kotlin.IntArray>(TagType.INT_ARRAY) {
+        override val value: kotlin.IntArray
+            get() = list.toIntArray()
+
+        override fun clone(): NBTTag<kotlin.IntArray> {
+            return copy()
+        }
+    }
 }
