@@ -1,5 +1,6 @@
 package toliner.nbt.tags
 
+import toliner.nbt.CompoundMap
 import toliner.nbt.TagType
 import kotlin.reflect.KClass
 
@@ -87,6 +88,12 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
 
     data class List<T : NBTTag<*>>(override val name: kotlin.String, val type: KClass<T>, override val value: kotlin.collections.List<T>) : NBTTag<kotlin.collections.List<T>>(TagType.LIST) {
         override fun clone(): NBTTag<kotlin.collections.List<T>> {
+            return copy()
+        }
+    }
+
+    data class Compound(override val name: kotlin.String, override val value: CompoundMap): NBTTag<CompoundMap>(TagType.COMPOUND) {
+        override fun clone(): NBTTag<CompoundMap> {
             return copy()
         }
     }

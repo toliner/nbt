@@ -13,6 +13,6 @@ enum class TagType(val tagClass: KClass<out NBTTag<*>>, val tagName: String, val
     DOUBLE(NBTTag.Double::class, "TAG_Double", 6),
     BYTE_ARRAY(NBTTag.ByteArray::class, "TAG_Byte_Array", 7),
     STRING(NBTTag.String::class, "TAG_String", 8),
-    LIST(NBTTag.List::class, "TAG_List", 9)
-
+    LIST(NBTTag.List::class, "TAG_List", 9),
+    COMPOUND(NBTTag.Compound::class, "TAG_Compound", 10)
 }
