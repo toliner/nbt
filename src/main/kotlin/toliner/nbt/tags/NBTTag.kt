@@ -1,6 +1,7 @@
 package toliner.nbt.tags
 
 import toliner.nbt.TagType
+import kotlin.reflect.KClass
 
 private typealias Integer = kotlin.Int
 
@@ -69,7 +70,7 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
         }
     }
 
-    data class ByteArray(override val name: kotlin.String, private val list: List<kotlin.Byte>) : NBTTag<kotlin.ByteArray>(TagType.BYTE_ARRAY) {
+    data class ByteArray(override val name: kotlin.String, private val list: kotlin.collections.List<kotlin.Byte>) : NBTTag<kotlin.ByteArray>(TagType.BYTE_ARRAY) {
         override val value: kotlin.ByteArray
             get() = list.toByteArray()
 
@@ -80,6 +81,12 @@ sealed class NBTTag<out T>(val tagType: TagType) : Comparable<NBTTag<*>> {
 
     data class String(override val name: kotlin.String, override val value: kotlin.String) : NBTTag<kotlin.String>(TagType.STRING) {
         override fun clone(): NBTTag<kotlin.String> {
+            return copy()
+        }
+    }
+
+    data class List<T : NBTTag<*>>(override val name: kotlin.String, val type: KClass<T>, override val value: kotlin.collections.List<T>) : NBTTag<kotlin.collections.List<T>>(TagType.LIST) {
+        override fun clone(): NBTTag<kotlin.collections.List<T>> {
             return copy()
         }
     }
