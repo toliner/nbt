@@ -11,6 +11,14 @@ package toliner.nbt
 import java.util.*
 import kotlin.collections.LinkedHashMap
 
+/**
+ * This is an internal class for [NBTTag.Compound].
+ * This is an Map<String, NBTTag<*>.
+ *
+ * @param initial Iterator of initial NBTTags.
+ * @param isSorted Set true to sort NBTTags.
+ * @param isReversed Set true to reverse-sort NBTTags. if true, this works as isSorted is true
+ */
 class CompoundMap(initial: Iterator<NBTTag<*>>? = null, isSorted: Boolean = false, isReversed: Boolean = false) : MutableMap<String, NBTTag<*>>, Iterable<NBTTag<*>> {
 
     init {
@@ -21,6 +29,12 @@ class CompoundMap(initial: Iterator<NBTTag<*>>? = null, isSorted: Boolean = fals
 
     private val map: MutableMap<String, NBTTag<*>> = if (isSorted || isReversed) TreeMap(if (isReversed) Collections.reverseOrder<String>() else null) else LinkedHashMap()
 
+    /**
+     * add a NBTTag to map.
+     * Key is name of the NBTTag.
+     *
+     * @param value NBTTag you want to add.
+     */
     fun put(value: NBTTag<*>): NBTTag<*>? {
         return map.put(value.name, value)
     }
