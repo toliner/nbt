@@ -62,6 +62,7 @@ hs_err_pid*
 ### Gradle template
 .gradle
 build/
+.idea/
 
 # Ignore Gradle GUI config
 gradle-app.setting
