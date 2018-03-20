@@ -61,7 +61,8 @@ hs_err_pid*
 .nfs*
 ### Gradle template
 .gradle
-/build/
+build/
+.idea/
 
 # Ignore Gradle GUI config
 gradle-app.setting
