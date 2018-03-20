@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>toliner.nbt - toliner/nbt</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">toliner/nbt</a>&nbsp;/&nbsp;<a href="./index.html">toliner.nbt</a><br/>
+<br/>
+<h2>Package toliner.nbt</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-compound-map/index.html">CompoundMap</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CompoundMap</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="-n-b-t-tag/index.html"><span class="identifier">NBTTag</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="-n-b-t-tag/index.html"><span class="identifier">NBTTag</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>This is an internal class for <a href="-n-b-t-tag/-compound/index.html">NBTTag.Compound</a>.
+This is an Map&lt;String, NBTTag&lt;*&gt;.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-n-b-t-tag/index.html">NBTTag</a></p>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">NBTTag</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="-n-b-t-tag/index.html"><span class="identifier">NBTTag</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>This class is base class of all tag classes.
+All subclasses are nested under this class because all tag types are pre-defined.
+This is comparable by <a href="-n-b-t-tag/name.html">name</a> for sorting tags.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-tag-type/index.html">TagType</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">TagType</span></code>
+<p>The enum of all tag types.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
