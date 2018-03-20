@@ -13,9 +13,9 @@ import kotlin.reflect.KClass
 /**
  * The enum of all tag types.
  *
- * @param tagClass the class of the tag type. all tag classes are subclass of [NBTTag]
- * @param tagName name of the tag type.
- * @param id id of the tag type. It will used for identify tag type in binary.
+ * @property tagClass the class of the tag type. all tag classes are subclass of [NBTTag]
+ * @property tagName name of the tag type.
+ * @property id id of the tag type. It will used for identify tag type in binary.
  */
 enum class TagType(val tagClass: KClass<out NBTTag<*>>, val tagName: String, val id: Int) {
     END(NBTTag.End::class, "TAG_END", 0),
