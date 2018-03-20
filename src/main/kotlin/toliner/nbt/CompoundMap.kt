@@ -8,7 +8,6 @@
 
 package toliner.nbt
 
-import toliner.nbt.tags.NBTTag
 import java.util.*
 import kotlin.collections.LinkedHashMap
 

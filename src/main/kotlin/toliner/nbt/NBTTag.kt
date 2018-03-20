@@ -6,10 +6,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-package toliner.nbt.tags
+package toliner.nbt
 
-import toliner.nbt.CompoundMap
-import toliner.nbt.TagType
 import kotlin.reflect.KClass
 
 private typealias Integer = kotlin.Int

@@ -8,7 +8,6 @@
 
 package toliner.nbt
 
-import toliner.nbt.tags.NBTTag
 import kotlin.reflect.KClass
 
 /**
