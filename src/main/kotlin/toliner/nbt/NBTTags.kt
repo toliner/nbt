@@ -10,8 +10,6 @@ package toliner.nbt
 
 import kotlin.reflect.KClass
 
-private typealias Integer = kotlin.Int
-
 /**
  * This class is base class of all **immutable** tag classes.
  * This class is reference impl for [NBTTag].
@@ -75,8 +73,8 @@ sealed class NBTTags<out T>(val tagType: TagType) : NBTTag<T> {
      * The [TagType.INT] tag.
      * This tag stores four-bytes-signed-integer data, which we use it as [kotlin.Int]
      */
-    data class Int(override val name: kotlin.String, override val value: Integer) : NBTTags<Integer>(TagType.INT) {
-        override fun clone(): NBTTags<Integer> {
+    data class Int(override val name: kotlin.String, override val value: kotlin.Int) : NBTTags<kotlin.Int>(TagType.INT) {
+        override fun clone(): NBTTags<kotlin.Int> {
             return copy()
         }
     }
