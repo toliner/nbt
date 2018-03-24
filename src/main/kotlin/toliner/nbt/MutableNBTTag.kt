@@ -8,6 +8,6 @@
 
 package toliner.nbt
 
-interface MutableNBTTag<T>: NBTTag<T> {
+interface MutableNBTTag<T> : NBTTag<T> {
     override var value: T
 }
