@@ -2,7 +2,7 @@ group 'toliner'
 version '0.1.0'
 
 buildscript {
-    ext.kotlin_version = '1.2.31'
+    ext.kotlin_version = '1.2.41'
     ext.dokka_version = '0.9.16'
 
     repositories {
@@ -35,7 +35,7 @@ compileTestKotlin {
 
 dokka {
     moduleName = 'toliner/nbt'
-    outputFormat = 'html'
+    outputFormat = 'gfm'
     outputDirectory = "docs"
     jdkVersion  = 8
     impliedPlatforms = ["JVM"]

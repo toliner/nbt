@@ -12,7 +12,7 @@ import java.util.*
 import kotlin.collections.LinkedHashMap
 
 /**
- * This is an internal class for [NBTTag.Compound].
+ * This is an internal class for [TagType.COMPOUND].
  * This is an Map<String, NBTTag<*>.
  *
  * @param initial Iterator of initial NBTTags.
