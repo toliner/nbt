@@ -22,5 +22,5 @@ interface NBTTag<out T>: Comparable<NBTTag<*>> {
     /**
      * To use create same name and value tag.
      */
-    fun clone(): NBTTags<T>
+    fun clone(): NBTTag<T>
 }
