@@ -35,7 +35,7 @@ compileTestKotlin {
 
 dokka {
     moduleName = 'toliner/nbt'
-    outputFormat = 'html'
+    outputFormat = 'gfm'
     outputDirectory = "docs"
     jdkVersion  = 8
     impliedPlatforms = ["JVM"]
