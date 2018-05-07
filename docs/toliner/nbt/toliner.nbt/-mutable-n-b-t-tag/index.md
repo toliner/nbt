@@ -4,6 +4,9 @@
 
 `interface MutableNBTTag<T> : `[`NBTTag`](../-n-b-t-tag/index.md)`<`[`T`](index.md#T)`>`
 
+This interface is base interface of all **mutable** tag classes.
+This is comparable by [name](../-n-b-t-tag/name.md) for sorting tags.
+
 ### Properties
 
 | Name | Summary |

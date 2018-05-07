@@ -24,5 +24,5 @@ This is comparable by [name](name.md) for sorting tags.
 
 | Name | Summary |
 |---|---|
-| [MutableNBTTag](../-mutable-n-b-t-tag/index.md) | `interface MutableNBTTag<T> : `[`NBTTag`](./index.md)`<`[`T`](../-mutable-n-b-t-tag/index.md#T)`>` |
+| [MutableNBTTag](../-mutable-n-b-t-tag/index.md) | `interface MutableNBTTag<T> : `[`NBTTag`](./index.md)`<`[`T`](../-mutable-n-b-t-tag/index.md#T)`>`<br>This interface is base interface of all **mutable** tag classes. This is comparable by [name](name.md) for sorting tags. |
 | [NBTTags](../-n-b-t-tags/index.md) | `sealed class NBTTags<out T> : `[`NBTTag`](./index.md)`<`[`T`](../-n-b-t-tags/index.md#T)`>`<br>This class is base class of all **immutable** tag classes. This class is reference impl for [NBTTag](./index.md). This is comparable by [name](name.md) for sorting tags. |

@@ -8,6 +8,13 @@
 
 package toliner.nbt
 
+/**
+ * This interface is base interface of all **mutable** tag classes.
+ * This is comparable by [name] for sorting tags.
+ *
+ * @property value data that the tag has.
+ * @property name name of the tag. It will be used for identifying tag.
+ */
 interface MutableNBTTag<T> : NBTTag<T> {
     override var value: T
 }
