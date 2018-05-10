@@ -134,8 +134,91 @@ sealed class MutableNBTTags<T>(val tagType: TagType) : MutableNBTTag<T> {
      * The [TagType.LIST] tag.
      * This tag stores list of [NBTTags]s.
      */
-    data class List<T : NBTTag<*>>(override val name: kotlin.String, val type: KClass<T>, override var value: kotlin.collections.List<T>) : MutableNBTTags<kotlin.collections.List<T>>(TagType.LIST) {
-        override fun clone(): MutableNBTTags<kotlin.collections.List<T>> {
+    data class List<T : NBTTag<*>>(override val name: kotlin.String, val type: KClass<T>, override var value: kotlin.collections.MutableList<T>) : MutableNBTTags<kotlin.collections.MutableList<T>>(TagType.LIST), MutableList<T> {
+        override val size: kotlin.Int
+            get() = value.size
+
+        override fun contains(element: T): Boolean {
+            return value.contains(element)
+        }
+
+        override fun containsAll(elements: Collection<T>): Boolean {
+            return value.containsAll(elements)
+        }
+
+        override fun get(index: kotlin.Int): T {
+            return value[index]
+        }
+
+        override fun indexOf(element: T): kotlin.Int {
+            return value.indexOf(element)
+        }
+
+        override fun isEmpty(): Boolean {
+            return value.isEmpty()
+        }
+
+        override fun iterator(): MutableIterator<T> {
+            return value.iterator()
+        }
+
+        override fun lastIndexOf(element: T): kotlin.Int {
+            return value.lastIndexOf(element)
+        }
+
+        override fun add(element: T): Boolean {
+            return value.add(element)
+        }
+
+        override fun add(index: kotlin.Int, element: T) {
+            return value.add(index, element)
+        }
+
+        override fun addAll(index: kotlin.Int, elements: Collection<T>): Boolean {
+            return value.addAll(index, elements)
+        }
+
+        override fun addAll(elements: Collection<T>): Boolean {
+            return value.addAll(elements)
+        }
+
+        override fun clear() {
+            value.clear()
+        }
+
+        override fun listIterator(): MutableListIterator<T> {
+            return value.listIterator()
+        }
+
+        override fun listIterator(index: kotlin.Int): MutableListIterator<T> {
+            return value.listIterator(index)
+        }
+
+        override fun remove(element: T): Boolean {
+            return value.remove(element)
+        }
+
+        override fun removeAll(elements: Collection<T>): Boolean {
+            return value.removeAll(elements)
+        }
+
+        override fun removeAt(index: kotlin.Int): T {
+            return value.removeAt(index)
+        }
+
+        override fun retainAll(elements: Collection<T>): Boolean {
+            return value.retainAll(elements)
+        }
+
+        override fun set(index: kotlin.Int, element: T): T {
+            return value.set(index, element)
+        }
+
+        override fun subList(fromIndex: kotlin.Int, toIndex: kotlin.Int): MutableList<T> {
+            return value.subList(fromIndex, toIndex)
+        }
+
+        override fun clone(): MutableNBTTags<kotlin.collections.MutableList<T>> {
             return copy()
         }
     }
