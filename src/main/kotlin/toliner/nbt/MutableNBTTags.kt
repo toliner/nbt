@@ -19,7 +19,7 @@ import kotlin.reflect.KClass
  * @property value data that the tag has.
  * @property name name of the tag. It will be used for identifying tag.
  */
-sealed class MutableNBTTags<T>(val tagType: TagType) : MutableNBTTag<T> {
+sealed class MutableNBTTags<T>(override val tagType: TagType) : MutableNBTTag<T> {
     override fun compareTo(other: NBTTag<*>): kotlin.Int {
         return if (this == other) {
             0

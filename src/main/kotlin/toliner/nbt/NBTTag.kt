@@ -18,6 +18,7 @@ package toliner.nbt
 interface NBTTag<out T>: Comparable<NBTTag<*>> {
     val value: T
     val name: kotlin.String
+    val tagType: TagType
 
     /**
      * To use create same name and value tag.
