@@ -227,7 +227,49 @@ sealed class MutableNBTTags<T>(val tagType: TagType) : MutableNBTTag<T> {
      * The [TagType.COMPOUND] tag.
      * This tag stores some [NBTTags]s as key-value map
      */
-    data class Compound(override val name: kotlin.String, override var value: CompoundMap) : MutableNBTTags<CompoundMap>(TagType.COMPOUND) {
+    data class Compound(override val name: kotlin.String, override var value: CompoundMap) : MutableNBTTags<CompoundMap>(TagType.COMPOUND), MutableMap<kotlin.String, NBTTag<*>> {
+        override val size: kotlin.Int
+            get() = value.size
+
+        override fun containsKey(key: kotlin.String): Boolean {
+            return value.containsKey(key)
+        }
+
+        override fun containsValue(value: NBTTag<*>): Boolean {
+            return this.value.containsValue(value)
+        }
+
+        override fun get(key: kotlin.String): NBTTag<*>? {
+            return value[key]
+        }
+
+        override fun isEmpty(): Boolean {
+            return value.isEmpty()
+        }
+
+        override val entries: MutableSet<MutableMap.MutableEntry<kotlin.String, NBTTag<*>>>
+            get() = value.entries
+        override val keys: MutableSet<kotlin.String>
+            get() = value.keys
+        override val values: MutableCollection<NBTTag<*>>
+            get() = value.values
+
+        override fun clear() {
+            value.clear()
+        }
+
+        override fun put(key: kotlin.String, value: NBTTag<*>): NBTTag<*>? {
+            return this.value.put(key, value)
+        }
+
+        override fun putAll(from: Map<out kotlin.String, NBTTag<*>>) {
+            value.putAll(from)
+        }
+
+        override fun remove(key: kotlin.String): NBTTag<*>? {
+            return value.remove(key)
+        }
+
         override fun clone(): MutableNBTTags<CompoundMap> {
             return copy()
         }
