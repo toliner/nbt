@@ -189,7 +189,32 @@ sealed class NBTTags<out T>(val tagType: TagType) : NBTTag<T> {
      * The [TagType.COMPOUND] tag.
      * This tag stores some [NBTTags]s as key-value map
      */
-    data class Compound(override val name: kotlin.String, override val value: CompoundMap) : NBTTags<CompoundMap>(TagType.COMPOUND) {
+    data class Compound(override val name: kotlin.String, override val value: CompoundMap) : NBTTags<CompoundMap>(TagType.COMPOUND), Map<kotlin.String, NBTTag<*>> {
+        override val entries: Set<Map.Entry<kotlin.String, NBTTag<*>>>
+            get() = value.entries
+        override val keys: Set<kotlin.String>
+            get() = value.keys
+        override val size: kotlin.Int
+            get() = value.size
+        override val values: Collection<NBTTag<*>>
+            get() = value.values
+
+        override fun containsKey(key: kotlin.String): Boolean {
+            return value.containsKey(key)
+        }
+
+        override fun containsValue(value: NBTTag<*>): Boolean {
+            return this.value.containsValue(value)
+        }
+
+        override fun get(key: kotlin.String): NBTTag<*>? {
+            return value[key]
+        }
+
+        override fun isEmpty(): Boolean {
+            return value.isEmpty()
+        }
+
         override fun clone(): NBTTags<CompoundMap> {
             return copy()
         }
