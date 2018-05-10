@@ -136,7 +136,50 @@ sealed class NBTTags<out T>(val tagType: TagType) : NBTTag<T> {
      * The [TagType.LIST] tag.
      * This tag stores list of [NBTTags]s.
      */
-    data class List<T : NBTTags<*>>(override val name: kotlin.String, val type: KClass<T>, override val value: kotlin.collections.List<T>) : NBTTags<kotlin.collections.List<T>>(TagType.LIST) {
+    data class List<T : NBTTag<*>>(override val name: kotlin.String, val type: KClass<T>, override val value: kotlin.collections.List<T>) : NBTTags<kotlin.collections.List<T>>(TagType.LIST), kotlin.collections.List<T> {
+        override val size: kotlin.Int
+            get() = value.size
+
+        override fun contains(element: T): Boolean {
+            return value.contains(element)
+        }
+
+        override fun containsAll(elements: Collection<T>): Boolean {
+            return value.containsAll(elements)
+        }
+
+        override fun get(index: kotlin.Int): T {
+            return value[index]
+        }
+
+        override fun indexOf(element: T): kotlin.Int {
+            return value.indexOf(element)
+        }
+
+        override fun isEmpty(): Boolean {
+            return value.isEmpty()
+        }
+
+        override fun iterator(): Iterator<T> {
+            return value.iterator()
+        }
+
+        override fun lastIndexOf(element: T): kotlin.Int {
+            return value.lastIndexOf(element)
+        }
+
+        override fun listIterator(): ListIterator<T> {
+            return value.listIterator()
+        }
+
+        override fun listIterator(index: kotlin.Int): ListIterator<T> {
+            return value.listIterator(index)
+        }
+
+        override fun subList(fromIndex: kotlin.Int, toIndex: kotlin.Int): kotlin.collections.List<T> {
+            return value.subList(fromIndex, toIndex)
+        }
+
         override fun clone(): NBTTags<kotlin.collections.List<T>> {
             return copy()
         }
