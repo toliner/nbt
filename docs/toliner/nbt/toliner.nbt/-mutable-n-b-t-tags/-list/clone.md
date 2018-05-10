@@ -2,7 +2,7 @@
 
 # clone
 
-`fun clone(): `[`MutableNBTTags`](../index.md)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`T`](index.md#T)`>>`
+`fun clone(): `[`MutableNBTTags`](../index.md)`<`[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`T`](index.md#T)`>>`
 
 Overrides [NBTTag.clone](../../-n-b-t-tag/clone.md)
 
